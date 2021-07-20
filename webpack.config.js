@@ -1,59 +1,56 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
-const { webpack } = require('webpack')
 const { resolve } = require('path')
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const getRelativePath = _path => resolve(__dirname, _path)
-const isProduction = process.env.NODE_ENV === 'production'
-const stylesHandler = 'style-loader'
 
-const config = {
-  entry: getRelativePath('./src/index.js'),
+module.exports = (env = {}) => ({
+  mode: env.prod ? 'production' : 'development',
+
+  devtool: env.prod ? 'source-map' : 'eval-cheap-module-source-map',
+
+  entry: [
+    getRelativePath('./src/main.js')
+  ],
 
   output: {
-    path: getRelativePath('./dist')
+    path: getRelativePath('./docs'),
+    publicPath: '/dist/'
   },
 
-  devServer: {
-    open: true,
-    host: 'localhost'
+  resolve: {
+    alias: {
+      /* for some unknow reason it's need :( */
+      vue: '@vue/runtime-dom'
+    }
   },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: getRelativePath('./src/public/index.html')
-    })
-  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/i,
-        loader: 'babel-loader'
+        test: /\.vue$/,
+        use: 'vue-loader'
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, 'css-loader']
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [stylesHandler, 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset'
+        test: /\.css$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          'css-loader'
+        ]
       }
     ]
-  }
-}
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({ filename: 'main.css' })
+  ],
 
-module.exports = () => {
-  if (isProduction) {
-    config.mode = 'production'
-    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW())
-  } else {
-    config.mode = 'development'
+  devServer: {
+    contentBase: __dirname,
+    stats: 'minimal',
+    hot: true,
+    inline: true,
+    overlay: true,
+    injectClient: false,
+    disableHostCheck: true
   }
-  return config
-}
+})
