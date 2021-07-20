@@ -1,15 +1,7 @@
-# 🚀 Welcome to your new awesome project!
+# webpack5+vue3
 
-This project has been created using **webpack-cli**, you can now run
 
-```
-npm run build
-```
+<!-- references
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+https://github.com/zaaack/htmls-webpack-plugin
+-->
