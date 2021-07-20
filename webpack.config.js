@@ -15,7 +15,7 @@ module.exports = (env = {}) => ({
   ],
 
   output: {
-    path: getRelativePath('dist'),
+    // path: getRelativePath('dist'),
     publicPath: '/public/'
   },
 
