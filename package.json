@@ -2,6 +2,7 @@
     "name": "w5v3-app",
     "author": "andersonbosa '@tainha' <andersonbosa0@gmail.com>",
     "version": "1.0.0",
+    "license": "MIT",
     "keywords": [
         "gh-pages",
         "webpack5",
@@ -10,11 +11,12 @@
         "vue"
     ],
     "scripts": {
+        "release": "cp -rf ./dist ./docs && echo '# 🚀 Ready to go!'",
         "build": "webpack --mode=production --node-env=production",
         "build:dev": "webpack --mode=development",
         "build:prod": "webpack --mode=production --node-env=production",
         "watch": "webpack --watch",
-        "serve": "webpack serve"
+        "dev": "webpack serve"
     },
     "dependencies": {
         "vue": "^3.0.2"
@@ -23,6 +25,7 @@
         "@vue/compiler-sfc": "^3.0.2",
         "css-loader": "^6.2.0",
         "file-loader": "^6.2.0",
+        "htmls-webpack-plugin": "^2.0.2",
         "mini-css-extract-plugin": "^2.1.0",
         "url-loader": "^4.1.1",
         "vue-loader": "^16.0.0-rc.1",

@@ -964,6 +964,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+ejs@^2.6.1:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
+  integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
+
 electron-to-chromium@^1.3.723:
   version "1.3.780"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.780.tgz#f946e10dc0005a3b59b9afa2d2c92f5c421f7fc5"
@@ -1458,6 +1463,13 @@ html-entities@^1.3.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
   integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
+
+htmls-webpack-plugin@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/htmls-webpack-plugin/-/htmls-webpack-plugin-2.0.2.tgz#82c560ebe93e3ddfbebc44d7cfaacabf07ffca34"
+  integrity sha512-8LLyPaaQS4QtiIBDix10aNKuE2AuxfG0Tyywf8FlXODis/P5d3zkmxSYSORK/6XHeu+kiXzgElVAbioGtXfryw==
+  dependencies:
+    ejs "^2.6.1"
 
 http-deceiver@^1.2.7:
   version "1.2.7"
